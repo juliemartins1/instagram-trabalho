@@ -2,10 +2,10 @@ import { ImageSourcePropType } from 'react-native';
 
 export interface Post {
     id: string;
-    username: string;
-    avatar: ImageSourcePropType;
+    userId: string;
     image: ImageSourcePropType;
     description: string;
-    likes: number;
     location?: string;
+    likes: number;
+    commentsEnabled: boolean;
 }

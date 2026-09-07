@@ -1,19 +1,20 @@
 import {
     Image,
     ImageSourcePropType,
+    Pressable,
     StyleSheet,
     Text,
-    View,
 } from 'react-native';
 
 interface StoryItemProps {
     username: string;
     image: ImageSourcePropType;
+    onPress?: () => void;
 }
 
-export function StoryItem({ username, image }: StoryItemProps) {
+export function StoryItem({ username, image, onPress }: StoryItemProps) {
     return (
-        <View style={styles.container}>
+        <Pressable style={styles.container} onPress={onPress}>
             <Image
                 source={image}
                 style={styles.avatar}
@@ -22,7 +23,7 @@ export function StoryItem({ username, image }: StoryItemProps) {
             <Text style={styles.username}>
                 {username}
             </Text>
-        </View>
+        </Pressable>
     );
 }
 

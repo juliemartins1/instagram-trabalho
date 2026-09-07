@@ -1,6 +1,8 @@
 import { Post } from '@/model/post';
+import { User } from '@/model/user';
 import {
     Image,
+    Pressable,
     StyleSheet,
     Text,
     View,
@@ -8,23 +10,25 @@ import {
 
 interface PostCardProps {
     post: Post;
+    user: User;
+    onPressUser?: () => void;
 }
 
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ post, user, onPressUser }: PostCardProps) {
     return (
         <View style={styles.post}>
 
             {/* Cabeçalho */}
-            <View style={styles.header}>
+            <Pressable style={styles.header} onPress={onPressUser}>
                 <Image
-                    source={post.avatar}
+                    source={user.avatar}
                     style={styles.avatar}
                 />
 
                 <Text style={styles.username}>
-                    {post.username}
+                    {user.username}
                 </Text>
-            </View>
+            </Pressable>
 
             {/* Imagem da publicação */}
             <Image
@@ -45,10 +49,14 @@ export function PostCard({ post }: PostCardProps) {
             {/* Descrição */}
             <Text style={styles.description}>
                 <Text style={styles.username}>
-                    {post.username}{' '}
+                    {user.username}{' '}
                 </Text>
                 {post.description}
             </Text>
+
+            {post.location ? (
+                <Text style={styles.location}>{post.location}</Text>
+            ) : null}
 
         </View>
     );
@@ -102,5 +110,13 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         paddingTop: 8,
         paddingBottom: 12,
+    },
+
+    location: {
+        paddingHorizontal: 16,
+        paddingTop: 2,
+        paddingBottom: 12,
+        fontSize: 12,
+        color: '#60646C',
     },
 });

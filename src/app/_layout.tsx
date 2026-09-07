@@ -1,11 +1,15 @@
 import { Stack } from 'expo-router';
 
+import { PostsProvider } from '@/context/posts-context';
+
 export default function RootLayout() {
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-      }}
-    />
+    <PostsProvider>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      />
+    </PostsProvider>
   );
 }
