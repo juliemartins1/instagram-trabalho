@@ -1,6 +1,6 @@
 # Instagram (reimplementação) — React Native + Expo + TypeScript
 
-Trabalho de reimplementação de um aplicativo real, com três telas conectadas por navegação, feito com React Native, Expo Router e TypeScript.
+Trabalho de reimplementação de um aplicativo real, com três telas conectadas por navegação,foi feito com React Native, Expo Router e TypeScript.
 
 ## 1. Aplicativo usado como referência
 

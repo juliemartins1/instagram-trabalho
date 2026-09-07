@@ -1,8 +1,6 @@
 import { User } from '@/model/user';
 import {
-    Alert,
     Image,
-    Pressable,
     StyleSheet,
     Text,
     View,
@@ -17,10 +15,6 @@ function formatCount(value: number): string {
         return `${(value / 1000).toFixed(1).replace('.0', '')}mil`;
     }
     return String(value);
-}
-
-function showPrototypeNotice() {
-    Alert.alert('Protótipo', 'Essa ação não faz parte do escopo deste trabalho.');
 }
 
 export function ProfileHeader({ user }: ProfileHeaderProps) {
@@ -49,12 +43,12 @@ export function ProfileHeader({ user }: ProfileHeaderProps) {
             <Text style={styles.bio}>{user.bio}</Text>
 
             <View style={styles.buttonsRow}>
-                <Pressable style={styles.actionButton} onPress={showPrototypeNotice}>
+                <View style={styles.actionButton}>
                     <Text style={styles.actionButtonText}>Editar perfil</Text>
-                </Pressable>
-                <Pressable style={styles.actionButton} onPress={showPrototypeNotice}>
+                </View>
+                <View style={styles.actionButton}>
                     <Text style={styles.actionButtonText}>Compartilhar perfil</Text>
-                </Pressable>
+                </View>
             </View>
 
             <View style={styles.gridTabs}>
