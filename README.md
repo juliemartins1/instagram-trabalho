@@ -14,7 +14,7 @@ Trabalho de reimplementação de um aplicativo real, com três telas conectadas 
 | **2. Perfil** (`src/app/profile/[id].tsx`) | Cabeçalho do usuário (avatar, nome, bio, contadores de publicações/seguidores/seguindo) e grade (3 colunas) com as publicações daquele usuário. Recebe o `id` do usuário via parâmetro de navegação. |
 | **3. Nova publicação** (`src/app/new-post.tsx`) | Formulário para "criar" uma publicação: escolher uma foto mockada, escrever legenda, localização e alternar duas opções (ocultar curtidas / permitir comentários). |
 
-**Fluxo de navegação:** Feed → (toque no avatar/nome de um usuário) → Perfil → (botão " + ") → Nova publicação → volta ao Perfil após "publicar".
+**Fluxo de navegação:** Feed → (toque no avatar/nome de um usuário) → Perfil → (botão "Nova publicação(icone + no canto superior direito)") → Nova publicação → volta ao Perfil após "publicar".
 
 ## 3. Instruções de execução
 
@@ -61,9 +61,25 @@ Os tipos desses dados estão em `src/model/user.ts` e `src/model/post.ts` (sem u
 ## 7. Screenshots
 
 ![Criar Publicação(Cópia)](./assets/criarpublicacao.jpeg)
+![Criar Publicação(Instagram)](./assets/novaPublicacaoInstagram.jpeg)
 ![Feed(Cópia)](./assets/feed.jpeg)
+![Feed(Cópia)](./assets/feedInstagram.jpeg)
 ![Perfil(Cópia)](./assets/perfil.jpeg)
+![Perfil(Cópia)](./assets/perfilInstagram.jpeg)
+
+
 
 ## 8. Fora do escopo (conforme enunciado)
 
 Não há backend, banco de dados, autenticação real, integração com APIs externas ou persistência remota. Todos os dados são mockados localmente.
+
+## 9. Simplificações em relação ao app real
+
+A tela "Nova publicação" do Instagram real reaproveita uma foto/vídeo já escolhido e oferece, entre outras opções: legenda, enquete/comando, adicionar música, marcar pessoas, adicionar localização, rótulo de conteúdo com IA, escolher entre postar no feed ou só no perfil, definir o público (seguidores/público), compartilhar também em outras redes (Threads/Facebook) e um menu de "mais opções".
+
+Como o enunciado permite (e recomenda) não reproduzir o aplicativo pixel a pixel, nem implementar tudo, a versão deste trabalho ficou com um subconjunto que já cobre os requisitos pedidos (formulário com múltiplos campos controlados, com feedback visual):
+
+- seleção de imagem (mockada, sem acesso real à galeria do dispositivo);
+- legenda (campo obrigatório, com validação);
+- localização (campo opcional);
+- alternar "ocultar contagem de curtidas" e "permitir comentários" (`Switch`).
